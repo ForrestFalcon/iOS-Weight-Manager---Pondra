@@ -2,33 +2,23 @@ PODS:
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
   - R.swift.Library (5.1.0)
-  - Realm (4.4.0):
-    - Realm/Headers (= 4.4.0)
-  - Realm/Headers (4.4.0)
-  - RealmSwift (4.4.0):
-    - Realm (= 4.4.0)
   - SwiftyBeaver (1.8.4)
 
 DEPENDENCIES:
   - R.swift (~> 5.1)
-  - RealmSwift (~> 4.4)
   - SwiftyBeaver
 
 SPEC REPOS:
   trunk:
     - R.swift
     - R.swift.Library
-    - Realm
-    - RealmSwift
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
-  Realm: e125f464884cda953ebefe70c671b75b03b81b9b
-  RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   SwiftyBeaver: f9a9aba96a6a6166e21682377804d728b0d20b95
 
-PODFILE CHECKSUM: 4c1fbfcce35db47cad20a4ffb2d5d72e5aad3d97
+PODFILE CHECKSUM: 2935353aaa07c11cdd8d56c7505ee90654610291
 
 COCOAPODS: 1.8.4
