@@ -7,6 +7,5 @@ target 'Pondra' do
 
   # Pods for Pondra
   pod 'R.swift', '~> 5.1'
-  pod 'RealmSwift', '~> 4.4'
   pod 'SwiftyBeaver'
 end

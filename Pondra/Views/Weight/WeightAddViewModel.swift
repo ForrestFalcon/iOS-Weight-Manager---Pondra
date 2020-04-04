@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 import SwiftUI
 
 class WeightAddViewModel: ObservableObject {
@@ -36,11 +35,6 @@ extension WeightAddViewModel {
         model.startWeight = self.startWeight
         model.date = self.selectedDate
         model.weight = weight
-
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(model)
-        }
 
         showingModal.toggle()
     }

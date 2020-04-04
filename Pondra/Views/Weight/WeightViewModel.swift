@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import RealmSwift
 import Combine
 import SwiftUI
 
 class WeightViewModel: ObservableObject {
-    @ObservedObject var weights = BindableResults(results: try! Realm().objects(Weight.self))
+//    @ObservedObject var weights = BindableResults(results: try! Realm().objects(Weight.self))
 }
 
 extension WeightViewModel {
@@ -22,12 +21,7 @@ extension WeightViewModel {
         }
 
         log.info("Delete Weight at index \(index)")
-        let weight = self.weights.results[index]
-        log.info(weight)
-
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(weight)
-        }
+//        let weight = self.weights.results[index]
+//        log.info(weight)
     }
 }

@@ -15,14 +15,13 @@ struct WeightView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(self.viewModel.weights.results.keyedEnumeration) { key in
-//                    let value = self.viewModel.weights.results[key]
-//                    return WeightRow(weight: Weight())
-                    Text(key.id)
-                }
-                .onDelete { index in
-                    self.viewModel.delete(at: index)
-                }
+                Text("TEST")
+//                ForEach(self.viewModel.weights.results.keyedEnumeration) { key in
+//                    Text(key.id)
+//                }
+//                .onDelete { index in
+//                    self.viewModel.delete(at: index)
+//                }
             }
             .navigationBarTitle(R.string.localizable.tab_database())
             .navigationBarItems(trailing:
