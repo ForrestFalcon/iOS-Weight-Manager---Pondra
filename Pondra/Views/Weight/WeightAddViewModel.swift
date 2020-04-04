@@ -9,14 +9,9 @@
 import Foundation
 import SwiftUI
 
-class WeightAddViewModel: ObservableObject {
+class WeightAddViewModel: ObservableObject, ViewContextFetcher {
     let weight = 40 ... 150
     let weightDecimal = 0 ... 9
-
-    @State var selectionWeight: Int = 100
-    @State var selectionWeightDecimal: Int = 0
-
-    @State var selectedDate = Date()
 
     let startWeight = false
 
@@ -28,14 +23,20 @@ class WeightAddViewModel: ObservableObject {
 }
 
 extension WeightAddViewModel {
-    func save() {
-        let weight = Float(self.selectionWeight) + (Float(self.selectionWeightDecimal) * 0.1)
+    func save(date: Date, weight: Int, weightDecimal: Int) {
+        let weight = Float(weight) + (Float(weightDecimal) * 0.1)
 
-        let model = Weight()
+        let model = WeightItem(context: self.context)
         model.startWeight = self.startWeight
-        model.date = self.selectedDate
+        model.date = date
         model.weight = weight
 
-        showingModal.toggle()
+        do {
+            try self.context.save()
+        } catch {
+            log.error(error)
+        }
+
+        self.showingModal.toggle()
     }
 }

@@ -6,6 +6,7 @@
   Copyright © 2019 Kevin Stieglitz. All rights reserved.
 */
 "tab_database" = "History";
+"tab_overview" = "Übersicht";
 
 "button_add" = "Add";
 "add_weight" = "Gewicht hinzufügen";

@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct WeightRow: View {
-
-    var weight: Weight
+    var weight: WeightItem
 
     var body: some View {
         HStack {
             Text(toString(weight.date))
             Spacer()
             Text("\(weight.weight, specifier: "%.1f")")
-        }.padding()
+        }
+        .padding(.horizontal)
     }
 
     func toString(_ date: Date) -> String {
@@ -29,6 +29,6 @@ struct WeightRow: View {
 
 struct WeightRow_Previews: PreviewProvider {
     static var previews: some View {
-        WeightRow(weight: Weight())
+        WeightRow(weight: WeightItem()).addDebugContext()
     }
 }

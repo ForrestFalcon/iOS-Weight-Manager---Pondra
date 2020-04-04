@@ -9,19 +9,19 @@
 import SwiftUI
 
 struct WeightView: View {
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(fetchRequest: WeightItem.getAllWeightItems()) var weightItems: FetchedResults<WeightItem>
+
     @ObservedObject var viewModel = WeightViewModel()
     @State var showingAddModal = false
 
     var body: some View {
         NavigationView {
             List {
-                Text("TEST")
-//                ForEach(self.viewModel.weights.results.keyedEnumeration) { key in
-//                    Text(key.id)
-//                }
-//                .onDelete { index in
-//                    self.viewModel.delete(at: index)
-//                }
+                ForEach(self.weightItems) { item in
+                    WeightRow(weight: item)
+                }
+                .onDelete { self.deleteItem(at: $0) }
             }
             .navigationBarTitle(R.string.localizable.tab_database())
             .navigationBarItems(trailing:
@@ -38,10 +38,25 @@ struct WeightView: View {
             WeightAddView(viewModel: WeightAddViewModel(showingModal: self.$showingAddModal))
         }
     }
+
+    func deleteItem(at offsets: IndexSet) {
+        guard let index = offsets.first else {
+            return
+        }
+        let deleteItem = self.weightItems[index]
+//        viewModel.delete(item: deleteItem)
+
+        self.context.delete(deleteItem)
+        do {
+            try self.context.save()
+        } catch {
+            log.error(error)
+        }
+    }
 }
 
 struct DatabaseView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightView()
+        return WeightView().addDebugContext()
     }
 }

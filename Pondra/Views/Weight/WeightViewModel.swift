@@ -6,22 +6,24 @@
 //  Copyright © 2020 Kevin Stieglitz. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 import SwiftUI
 
 class WeightViewModel: ObservableObject {
-//    @ObservedObject var weights = BindableResults(results: try! Realm().objects(Weight.self))
+    
 }
 
-extension WeightViewModel {
-    func delete(at offsets: IndexSet) {
-        guard let index = offsets.first else {
-            return
-        }
+extension WeightViewModel: ViewContextFetcher {
+    func delete(item: WeightItem) {
+        log.info("Delete Weight item")
+        log.info(item)
 
-        log.info("Delete Weight at index \(index)")
-//        let weight = self.weights.results[index]
-//        log.info(weight)
+        self.context.delete(item)
+        do {
+            try self.context.save()
+        } catch {
+            log.error(error)
+        }
     }
 }
