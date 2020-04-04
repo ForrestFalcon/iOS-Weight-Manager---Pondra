@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Pondra
+
+  Created by Kevin Stieglitz on 19.11.19.
+  Copyright © 2019 Kevin Stieglitz. All rights reserved.
+*/
+"tab_database" = "History";
+
+"button_add" = "Add";
+"add_weight" = "Gewicht hinzufügen";
+"date" = "Datum";
+"save" = "Speichern";
+
+"chart_no_data" = "You need to provide data for the chart.";
