@@ -19,7 +19,7 @@ extension WeightItem {
     static func getAllWeightItems() -> NSFetchRequest<WeightItem> {
         let request: NSFetchRequest<WeightItem> = WeightItem.fetchRequest() as! NSFetchRequest<WeightItem>
 
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sortDescriptor]
 
         return request

@@ -12,7 +12,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            GraphView()
+            OverviewView()
                 .tabItem {
                     Image(systemName: "tv.fill")
                     Text(R.string.localizable.tab_overview())
